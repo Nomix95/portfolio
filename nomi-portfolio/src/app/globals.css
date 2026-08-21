@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #fafafa;
+  --color-foreground: #111111;
+  --color-primary: #111111;
+  --color-secondary: #333333;
+  --color-accent: #f43f5e;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-outfit), var(--font-inter), ui-sans-serif, system-ui;
+}
+
+@layer base {
+  :root {
+    --background: #fafafa;
+    --foreground: #111111;
+    --primary: #111111;
+    --secondary: #333333;
+  }
+  
+  html {
+    background-color: var(--background);
+    color: var(--foreground);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none; /* We will use a custom cursor */
+    background-image:
+      linear-gradient(rgba(17, 17, 17, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17, 17, 17, 0.025) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+  }
+
+  ::selection {
+    background-color: var(--primary);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #555555, #111111);
+  }
+  
+  .clip-text-reveal {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .reveal-wrapper {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    overflow: hidden;
+  }
+
+  .card-dark {
+    @apply bg-[#111111] text-white rounded-3xl p-8 md:p-12 border border-[#333333] shadow-2xl;
+  }
+  
+  .card-light {
+    @apply bg-white text-[#111111] rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl;
+  }
+
+  .pill-dark {
+    @apply px-4 py-2 rounded-full border border-[#333333] text-sm text-gray-300 font-medium;
+  }
+
+  .pill-light {
+    @apply px-4 py-2 rounded-full bg-gray-100 text-sm text-gray-700 font-medium;
+  }
+}
